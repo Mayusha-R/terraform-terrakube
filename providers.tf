@@ -1,4 +1,12 @@
 terraform {
+  cloud {
+    organization = "azure"
+    hostname = "http://terrakube-ui:3000"
+
+    workspaces {
+      name = "terraform-terrakube"
+    }
+  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
