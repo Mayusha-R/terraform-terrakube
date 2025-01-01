@@ -20,7 +20,7 @@ resource "azurerm_network_security_group" "main_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "182.76.141.104/29,115.112.142.32/29,14.97.73.248/29"
+    source_address_prefix      = "14.97.73.248/29"
     destination_address_prefix = "*"
   }
   tags = var.tags
