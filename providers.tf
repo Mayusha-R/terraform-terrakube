@@ -1,7 +1,7 @@
 terraform {
   cloud {
     organization = "Examples"
-    hostname = "terrakube-ui.minikube.net"
+    hostname = "terrakube-api.minikube.net"
 
     workspaces {
       name = "terraform-terrakube"
