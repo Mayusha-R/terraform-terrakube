@@ -1,12 +1,4 @@
 terraform {
-  cloud {
-    organization = "Examples"
-    hostname = "terrakube-api.minikube.net"
-
-    workspaces {
-      name = "terraform-terrakube"
-    }
-  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
