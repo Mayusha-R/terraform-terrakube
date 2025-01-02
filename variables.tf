@@ -37,12 +37,12 @@ variable "public_ip_name" {
 variable "nsg_name" {
   type = string
 }
-variable "storage_name" {
-  type = string
-}
-variable "storage_container_name" {
-  type = string
-}
+# variable "storage_name" {
+#   type = string
+# }
+# variable "storage_container_name" {
+#   type = string
+# }
 variable "vm_name" {
   type = string
 }
