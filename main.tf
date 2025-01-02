@@ -6,15 +6,15 @@ locals {
   }
 }
 
-module "vnet" {
-  source                 = "./vnet"
-  location               = var.location
-  resource_gn            = var.resource_gn
-  vnet_name              = var.vnet_name
-  vnet_cidr_block        = var.vnet_cidr_block
-  vnet_subnet_cidr_block = var.vnet_subnet_cidr_block
-  tags                   = local.common_tags
-}
+# module "vnet" {
+#   source                 = "./vnet"
+#   location               = var.location
+#   resource_gn            = var.resource_gn
+#   vnet_name              = var.vnet_name
+#   vnet_cidr_block        = var.vnet_cidr_block
+#   vnet_subnet_cidr_block = var.vnet_subnet_cidr_block
+#   tags                   = local.common_tags
+# }
 
 module "nic" {
   source                      = "./nic"
@@ -22,7 +22,8 @@ module "nic" {
   resource_gn                 = var.resource_gn
   nic_name                    = var.nic_name
   public_ip_name              = var.public_ip_name
-  subnet_id                   = module.vnet.subnet_id
+  vnet_name                   = var.vnet_name
+  subnet_name                 = var.subnet_name
   primary_ipconfig_name       = var.primary_ipconfig_name
   primary_privateip_type      = var.primary_privateip_type
   public_ip_allocation_method = var.public_ip_allocation_method
@@ -52,12 +53,12 @@ module "vm" {
   tags        = local.common_tags
 }
 
-module "storage" {
-  source                 = "./storage"
-  location               = var.location
-  resource_gn            = var.resource_gn
-  storage_name           = var.storage_name
-  storage_container_name = var.storage_container_name
-  public_ip              = module.nic.public_ip
-  tags                   = local.common_tags
-}
+# module "storage" {
+#   source                 = "./storage"
+#   location               = var.location
+#   resource_gn            = var.resource_gn
+#   storage_name           = var.storage_name
+#   storage_container_name = var.storage_container_name
+#   public_ip              = module.nic.public_ip
+#   tags                   = local.common_tags
+# }
